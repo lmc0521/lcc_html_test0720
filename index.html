@@ -4,11 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <title>首頁</title>
-    <!--.代表class-->
+    <!--.代表class, #代表id, 都不加代表標籤-->
     <style>
+        .tentip {
+            text-align: left;
+            background-color: azure;
+            padding: 12px 60px;
+            border: 1px red solid;
+        }
+
+        body {
+            background-color: bisque;
+            font-family: '標楷體', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 32px;
+            text-align: center;
+        }
+
         .banner {
+            width: 350px;
+            display: inline-block;
             color: blue;
             background-color: blueviolet;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 48px;
+            margin: 12px;
+            padding: 6px 12px;
+        }
+
+        #title {
+            color: rgb(23, 20, 212);
+            background-color: rgb(100, 4, 20);
+            font-size: 64px;
+            margin: 2px 12px 24px 36px;
+            margin-top: 64px;
+            padding: 12px;
+            text-align: center;
         }
     </style>
 
@@ -16,7 +46,7 @@
 <!--內容顯示區-->
 
 <body>
-    <h1 style="color:blueviolet;background-color: darkgreen;">我愛健身網站</h1>
+    <div id="title">我愛健身網站</div>
     <div style="background-color:rgb(166, 243, 90);">
         <p>
             <b>健身，英文稱為workout，健身這兩個字拆開來的意思就是健康身體，通過各種運動方式或方法來增強力量、增加肌肉量、柔韌性、耐力，以及提高協調和控制身體各部分的能力來使我們的身體更強健。
@@ -33,19 +63,21 @@
         <img src="https://preview.520cc.com/auto_machine/20201216/3f58b0e6-1228-4134-8533-0423bc600e13.jpg!w800_520cc_water"
             alt="找不到圖片" width="100%">
     </a>
-    <h2 class="banner">健身的10個好處</h2>
-    <ol type="i">
-        <li>增加基礎代謝率</li>
-        <li>預防疾病和提高免疫力</li>
-        <li>改善心情</li>
-        <li>改善睡眠</li>
-        <li>增加自信</li>
-        <li>增強記憶力</li>
-        <li>增強心肺能力</li>
-        <li>提升睡眠品質</li>
-        <li>釋放工作的壓力</li>
-        <li>增加肌肉助於減肥</li>
-    </ol>
+    <div class="banner">健身的10個好處</div>
+    <div class="tentip">
+        <ol type="i">
+            <li>增加基礎代謝率</li>
+            <li>預防疾病和提高免疫力</li>
+            <li>改善心情</li>
+            <li>改善睡眠</li>
+            <li>增加自信</li>
+            <li>增強記憶力</li>
+            <li>增強心肺能力</li>
+            <li>提升睡眠品質</li>
+            <li>釋放工作的壓力</li>
+            <li>增加肌肉助於減肥</li>
+        </ol>
+    </div>
     <hr>
     <h2 class="banner">好文章連結</h2>
     <li>
@@ -73,7 +105,7 @@
     <img src="images/pic-1.jpg" alt="" width="32%">
     <img src="images/pic-2.jpg" alt="" width="32%">
     <img src="images/pic-3.jpg" alt="" width="32%">
-    <h2 class="banner">一天所需卡路里</h2>
+    <div class="banner">一天所需卡路里</div>
     <table border="1">
         <thead>
             <tr>
@@ -117,16 +149,18 @@
         &copy; &yen;&spades;&clubs;&hearts;&diams;
     </p>
     <hr>
-    <h2 class="banner">健身影片</h2>
-    <iframe width="48%" height="500" src="https://www.youtube.com/embed/sSfrZDolbRQ"
-        title="股直肌緊繃的問題，我推薦你效果更快、更持久的『反向北歐彎舉』｜#啾c物理治療師 #股直肌 #Reverse_Nordic_Curl" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <iframe width="48%" height="500" src="https://www.youtube.com/embed/PyG3klVvcRY"
-        title="強化前鋸肌的七個動作，你能做到第幾個？｜#啾c物理治療師 #肩膀 #前鋸肌" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <video width="100%" controls src="videos/3209663-uhd_3840_2160_25fps.mp4"></video>
+    <div class="banner">健身影片</div>
+    <div>
+        <iframe width="48%" height="500" src="https://www.youtube.com/embed/sSfrZDolbRQ"
+            title="股直肌緊繃的問題，我推薦你效果更快、更持久的『反向北歐彎舉』｜#啾c物理治療師 #股直肌 #Reverse_Nordic_Curl" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="48%" height="500" src="https://www.youtube.com/embed/PyG3klVvcRY"
+            title="強化前鋸肌的七個動作，你能做到第幾個？｜#啾c物理治療師 #肩膀 #前鋸肌" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <video width="100%" controls src="videos/3209663-uhd_3840_2160_25fps.mp4"></video>
+    </div>
 </body>
 
 </html>
