@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="res/style.css">
 
     <style>
-        form {
+        #bmi-form {
             background-color: aqua;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             font-size: large;
-            width: 30%;
+            width: 50%;
             margin: 0 auto;
             padding: 24px;
             border: 5px white solid;
@@ -22,7 +22,7 @@
 
         input {
             margin: 6px 0;
-            width: 70%;
+            width: 80%;
         }
 
         button {
@@ -35,14 +35,14 @@
         }
 
         @media screen and (max-width:768px) {
-            form {
-                width: 50%;
+            #bmi-form {
+                width: 80%;
             }
         }
 
         @media screen and (max-width:368px) {
-            form {
-                width: 90%;
+            #bmi-form {
+                width: 80%;
             }
 
             input {
@@ -55,7 +55,8 @@
 <body>
     <div class="banner">BMI計算機</div>
 
-    <form>
+    <!-- <form> -->
+    <div id="bmi-form">
         <label for="userName">姓名</label>
         <input id="userName" name="userName" type="text" placeholder="Jimmy"><br>
         <label for="passWD">密碼</label>
@@ -66,17 +67,40 @@
         <label for="email">郵件</label>
         <input id="email" name="email" type="email"><br>
         <label for="height">身高</label>
-        <input id="height" name="height" type="number" step="0.1" value="172"><br>
+        <input id="height" name="height" type="number" step="0.1" placeholder="172"><br>
         <label for="weight">體重</label>
-        <input id="weight" name="weight" type="number" step="0.1"><br>
+        <input id="weight" name="weight" type="number" step="0.1" placeholder="72"><br>
 
         <input type="checkbox">記住帳號<br>
         <input type="file">檔案<br>
 
-        <p><button>計算</button></p>
-    </form>
+        <p><button onclick="calcBMI()">計算</button></p>
+    </div>
+    <!-- </form> -->
     <!--加入返回-->
     <a href="/"><b>返回&nbsp;</b></a>
+
+    <script>
+        function calcBMI() {
+            //計算bmi
+            let bmi = weightEl.value / ((heightEl.value / 100) ** 2);
+            alert(`BMI:${bmi.toFixed(2)}`)
+        }
+
+
+        let heightEl = document.querySelector("#height");
+        let weightEl = document.querySelector("#weight");
+        let btnEl = document.querySelector('button');
+        console.log(heightEl.value, weightEl.value, btnEl);
+
+
+
+
+
+    </script>
+
+
+
 </body>
 
 </html>
