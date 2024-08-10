@@ -46,20 +46,61 @@
          * 計算BMI
          * 使用document.write輸出姓名&BMI
         */
-        let name = prompt("請輸入姓名:");
-        let height = prompt("請輸入身高(cm):");
-        let weight = prompt("請輸入體重(kg):");
-        console.log(name, height, weight);
-        const bmi = weight / ((height / 100) ** 2);
 
-        document.write(`<h1>${name}</h1>`)
-        document.write(`<li>身高: ${height}</li>`)
-        document.write(`<li>體重: ${weight}</li>`)
-        document.write(`<li>BMI: ${bmi.toFixed(2)}</li>`)
+        // 輸入三次
+        //for (let i = 0; i < 3; i++)
+        let count = 0;
+        let bmi_total = 0;
+        //平均bmi
+        while (true) {
+            if (count == 3) {
+                break;
+            }
+            let name = prompt("請輸入姓名:");
+            let height = prompt("請輸入身高(cm):");
+            let weight = prompt("請輸入體重(kg):");
+
+            //身高 or 體重 輸入不能為空
+            if (height == "" || weight == "") {
+                alert('輸入不能為空!');
+            }
+            else {
+                //身高 or 體重 1~500
+                if (!isValid(height, 1, 300) || !isValid(weight, 1, 500)) {
+                    alert('輸入數值異常!');
+                    continue;
+                }
 
 
+
+                console.log(name, height, weight, count);
+                const bmi = weight / ((height / 100) ** 2);
+
+                if (isNaN(bmi)) {
+                    alert('輸入錯誤!');
+                }
+                else {
+                    bmi_total += bmi;
+                    document.write(`<h1>${name}</h1>`);
+                    document.write(`<li>身高: ${height}</li>`);
+                    document.write(`<li>體重: ${weight}</li>`);
+                    document.write(`<li>BMI: ${bmi.toFixed(2)}</li>`);
+
+                    count++;
+                }
+
+            }
+        }
+        document.write(`<li>平均BMI: ${bmi_total / count.toFixed(2)}</li>`);
         // const result_BMI = "<hr><br>姓名為:" + name + " BMI為:" + bmi.toFixed(2);
         // document.write(result_BMI);
+
+
+        function isValid(value, start = 1, end = 500) {
+            return value >= start && value <= end;
+        }
+
+
     </script>
 </body>
 
