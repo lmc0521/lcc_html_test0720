@@ -79,19 +79,53 @@
     <!-- </form> -->
     <!--加入返回-->
     <a href="/"><b>返回&nbsp;</b></a>
+    <p id="result">BMI:</p>
+    <div id="comment">
 
+    </div>
     <script>
         function calcBMI() {
+
+            if (weightEl.value == '' || heightEl.value == '') {
+                resultEl.innerHTML = '<h1 style="color:red">輸入不能為空!</h1>';
+                return;
+            }
             //計算bmi
             let bmi = weightEl.value / ((heightEl.value / 100) ** 2);
-            alert(`BMI:${bmi.toFixed(2)}`)
+            // isNaN
+            if (isNaN(bmi)) {
+                resultEl.innerHTML = '<h1 style="color:blue>輸入錯誤!</h1>';
+            }
+            else {
+                resultEl.innerHTML = `<h1>BMI:${bmi.toFixed(2)}</h1>`;
+                //增加評語
+                let comment;
+                if (bmi < 18.5) {
+                    comment = '體重過輕';
+                    color = 'blue'
+                }
+                else if (bmi < 24) {
+                    comment = '健康體位';
+                    color = 'green'
+                }
+                else {
+                    comment = '體位異常';
+                    color = 'red'
+                }
+                commentEl.innerHTML = `<h3 style="color:${color}">${comment}</h3>`
+
+                // document.write(`BMI:${bmi.toFixed(2)}`)
+                //增加評語
+            }
         }
 
 
         let heightEl = document.querySelector("#height");
         let weightEl = document.querySelector("#weight");
         let btnEl = document.querySelector('button');
-        console.log(heightEl.value, weightEl.value, btnEl);
+        let resultEl = document.querySelector('#result');
+        let commentEl = document.querySelector('#comment');
+        console.log(resultEl, heightEl.value, weightEl.value, btnEl);
 
 
 
